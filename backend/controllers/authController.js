@@ -15,7 +15,7 @@ export const register = async(req,res)=>{
     }catch(err){
         res.status(500).json({message:'Something went wrong'});
     }
-}
+};
 
 export const login = async(req,res)=>{
     const {email,password} = req.body;
@@ -29,8 +29,9 @@ export const login = async(req,res)=>{
             return res.status(400).json({message:'Invalid credentials'});
         }
         const token = jwt.sign({id:student._id},process.env.JWT_SECRET,{expiresIn:'1d'});
-        res.status(200).json({token});
+        res.json({token, name:student.name});
     }catch(err){
+        console.log('login error', err);
         res.status(500).json({message:'Something went wrong'});
     }
-}
+};

@@ -6,10 +6,9 @@ const CourseSchema = new mongoose.Schema({
         required:true
     },
     courseDescription:{
-        type:String,
-        required:true
+        type:String
     },
-    Instructor:{
+    instructor:{
         type:String,
         required:true
     },
